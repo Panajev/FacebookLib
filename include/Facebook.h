@@ -25,7 +25,7 @@
  * and Graph APIs, and start user interface interactions (such as
  * pop-ups promoting for credentials, permissions, stream posts, etc.)
  */
-@interface Facebook : NSObject<FBLoginDialogDelegate, FBRequestDelegate>{
+@interface Facebook : NSObject<FBLoginDialogDelegate>{
   NSString* _accessToken;
   NSDate* _expirationDate;
   id<FBSessionDelegate> _sessionDelegate;
@@ -109,5 +109,14 @@
  * Called when the user logged out.
  */
 - (void)fbDidLogout;
+
+/**
+ * Called when the current session has expired. This might happen when:
+ *  - the access token expired 
+ *  - the app has been disabled
+ *  - the user revoked the app's permissions
+ *  - the user changed his or her password
+ */
+- (void)fbSessionInvalidated;
 
 @end
