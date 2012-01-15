@@ -37,8 +37,8 @@
 /* Begin PBXFileReference section */
 		AA747D9E0F9514B9006C5449 /* facebook_ios_sdk_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebook_ios_sdk_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D2AAC07E0554694100DB518D /* libfacebook_ios_sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libfacebook_ios_sdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E697A54D144AEB9E00DCEBD1 /* libFacebookLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libFacebookLib.a; path = libfacebook_ios_sdk_script.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2AAC07E0554694100DB518D /* libFacebook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFacebook.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E697A54D144AEB9E00DCEBD1 /* libFacebookLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libFacebookLib.a; path = libFacebookLib_script.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E697A588144AEDE500DCEBD1 /* FBDialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBDialog.bundle; path = resources/FBDialog.bundle; sourceTree = "<group>"; };
 		E6D8E07614B518100076E69C /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facebook.h; sourceTree = "<group>"; };
 		E6D8E07814B518100076E69C /* FBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBConnect.h; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC07E0554694100DB518D /* libfacebook_ios_sdk.a */,
+				D2AAC07E0554694100DB518D /* libFacebook.a */,
 				E697A54D144AEB9E00DCEBD1 /* libFacebookLib.a */,
 			);
 			name = Products;
@@ -215,9 +215,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D2AAC07D0554694100DB518D /* FacebookLib */ = {
+		D2AAC07D0554694100DB518D /* Facebook */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "FacebookLib" */;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Facebook" */;
 			buildPhases = (
 				D2AAC07A0554694100DB518D /* Headers */,
 				D2AAC07B0554694100DB518D /* Sources */,
@@ -227,14 +227,14 @@
 			);
 			dependencies = (
 			);
-			name = FacebookLib;
+			name = Facebook;
 			productName = "facebook-ios-sdk";
-			productReference = D2AAC07E0554694100DB518D /* libfacebook_ios_sdk.a */;
+			productReference = D2AAC07E0554694100DB518D /* libFacebook.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		E697A54C144AEB9E00DCEBD1 /* FacebookLib_script */ = {
+		E697A54C144AEB9E00DCEBD1 /* Facebook_script */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E697A555144AEB9E00DCEBD1 /* Build configuration list for PBXNativeTarget "FacebookLib_script" */;
+			buildConfigurationList = E697A555144AEB9E00DCEBD1 /* Build configuration list for PBXNativeTarget "Facebook_script" */;
 			buildPhases = (
 				E697A549144AEB9E00DCEBD1 /* Sources */,
 				E697A54A144AEB9E00DCEBD1 /* Frameworks */,
@@ -245,7 +245,7 @@
 			);
 			dependencies = (
 			);
-			name = FacebookLib_script;
+			name = Facebook_script;
 			productName = FacebookLib;
 			productReference = E697A54D144AEB9E00DCEBD1 /* libFacebookLib.a */;
 			productType = "com.apple.product-type.library.static";
@@ -270,8 +270,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2AAC07D0554694100DB518D /* FacebookLib */,
-				E697A54C144AEB9E00DCEBD1 /* FacebookLib_script */,
+				D2AAC07D0554694100DB518D /* Facebook */,
+				E697A54C144AEB9E00DCEBD1 /* Facebook_script */,
 			);
 		};
 /* End PBXProject section */
@@ -288,7 +288,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\nTARGET=\"FacebookLib\"\n#undefine the following line if you want to move and properly unpack the .zip files into the destination folder specified with DEST_DIR\nSCRIPT_OPTIONS=\"MOVE_FILE\"\nDEST_DIR=\"${PROJECT_DIR}/../SharedLibs\"\n\n#SVN_REVISION=$(svn info | grep Revision | cut -d ' ' -f 2)\nif [ ! -z $SVN_REVISION ]; then\nLIB_VERSION=\"-rev$SVN_REVISION\"\nelse\nLIB_VERSION=\"-unversioned\"\nfi\n\nLIBRARY_NAME=\"lib$TARGET.a\"\nLIBRARY_OUT_NAME_RELATIVE=\"lib$TARGET${LIB_VERSION}.a\"\nLIBRARY_OUT_NAME=\"lib/$LIBRARY_OUT_NAME_RELATIVE\"\nLATEST_SDK_DEVICE=$(xcodebuild -showsdks | grep iphoneos | awk 'BEGIN{FS=\"\\t\";}{print $3}' | cut -d ' ' -f 2 | tail -n 1)\nLATEST_SDK_SIMULATOR=$(xcodebuild -showsdks | grep iphonesimulator | awk 'BEGIN{FS=\"\\t\";}{print $3}' | cut -d ' ' -f 2 | tail -n 1)\n\nlocal_build_root=\"${PROJECT_DIR}/build\"\nbuild_styles=\"Debug Release\"\n\nfor current_style in $build_styles; do\nLIBRARY_ARCHIVE=\"$TARGET${LIB_VERSION}-${current_style}.zip\"\n\nif [ $current_style = \"Debug\" ]; then\nothercflags=\"OTHER_CFLAGS=$(value)\";\nLIBRARY_ARCHIVE=\"$TARGET-${current_style}.zip\"\nelse  \nothercflags=\"OTHER_CFLAGS=$(value) \\\"-DRELEASE_VERSION\\\"\";\nLIBRARY_ARCHIVE=\"$TARGET.zip\"\nfi\n\n# remove existing output file\nrm -rf ${PROJECT_DIR}/lib\nmkdir -p ${PROJECT_DIR}/lib\n\n# Build library for simulator\nxcodebuild clean -target $TARGET -configuration $current_style -sdk $LATEST_SDK_SIMULATOR\nxcodebuild -target $TARGET -configuration $current_style -sdk $LATEST_SDK_SIMULATOR \"$othercflags\" build\n\n# Build library for device\nxcodebuild clean -target $TARGET -configuration $current_style -sdk $LATEST_SDK_DEVICE\nxcodebuild -target $TARGET -configuration $current_style -sdk $LATEST_SDK_DEVICE \"$othercflags\" build\n\n# Glue together libraries\nlipo \"${local_build_root}/${current_style}-iphoneos/$LIBRARY_NAME\" -arch i386 \"${local_build_root}/${current_style}-iphonesimulator/$LIBRARY_NAME\" -create -output \"${PROJECT_DIR}/$LIBRARY_OUT_NAME\"\n\n# Create symlink\ncd lib\nln -s \"$LIBRARY_OUT_NAME_RELATIVE\" \"$LIBRARY_NAME\"\ncd ..\n\nif [ $? -eq 0 ]; then\nzip -R -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"lib/*.a\"\nzip -r -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"resources\" \"include\" -x@zip_exclude.lst\n#zip \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" .packageid\nfi\n\nif [ $SCRIPT_OPTIONS = \"MOVE_FILE\" ]; then\n    BUILT_ZIP=\"${PROJECT_DIR}/$LIBRARY_ARCHIVE\"\n    NEW_ZIP=\"$DEST_DIR/$LIBRARY_ARCHIVE\"\n\n    if [ $current_style = \"Debug\" ]; then\n        OLD_FOLDER=\"$DEST_DIR/$TARGET-${current_style}\"\n    else  \n        OLD_FOLDER=\"$DEST_DIR/$TARGET\"\n    fi\n    rm -rf $OLD_FOLDER\n    mv $BUILT_ZIP $DEST_DIR/\n    unzip -o $NEW_ZIP -d $OLD_FOLDER/\n    rm -f $NEW_ZIP\nfi\n\ndone";
+			shellScript = "#!/bin/sh\n\nTARGET=\"Facebook\"\n#undefine the following line if you want to move and properly unpack the .zip files into the destination folder specified with DEST_DIR\nSCRIPT_OPTIONS=\"MOVE_FILE\"\nDEST_DIR=\"${PROJECT_DIR}/../SharedLibs\"\n\n#SVN_REVISION=$(svn info | grep Revision | cut -d ' ' -f 2)\nif [ ! -z $SVN_REVISION ]; then\nLIB_VERSION=\"-rev$SVN_REVISION\"\nelse\nLIB_VERSION=\"-unversioned\"\nfi\n\nLIBRARY_NAME=\"lib$TARGET.a\"\nLIBRARY_OUT_NAME_RELATIVE=\"lib$TARGET${LIB_VERSION}.a\"\nLIBRARY_OUT_NAME=\"lib/$LIBRARY_OUT_NAME_RELATIVE\"\nLATEST_SDK_DEVICE=$(xcodebuild -showsdks | grep iphoneos | awk 'BEGIN{FS=\"\\t\";}{print $3}' | cut -d ' ' -f 2 | tail -n 1)\nLATEST_SDK_SIMULATOR=$(xcodebuild -showsdks | grep iphonesimulator | awk 'BEGIN{FS=\"\\t\";}{print $3}' | cut -d ' ' -f 2 | tail -n 1)\n\nlocal_build_root=\"${PROJECT_DIR}/build\"\nbuild_styles=\"Debug Release\"\n\nfor current_style in $build_styles; do\nLIBRARY_ARCHIVE=\"$TARGET${LIB_VERSION}-${current_style}.zip\"\n\nif [ $current_style = \"Debug\" ]; then\nothercflags=\"OTHER_CFLAGS=$(value)\";\nLIBRARY_ARCHIVE=\"$TARGET-${current_style}.zip\"\nelse  \nothercflags=\"OTHER_CFLAGS=$(value) \\\"-DRELEASE_VERSION\\\"\";\nLIBRARY_ARCHIVE=\"$TARGET.zip\"\nfi\n\n# remove existing output file\nrm -rf ${PROJECT_DIR}/lib\nmkdir -p ${PROJECT_DIR}/lib\n\n# Build library for simulator\nxcodebuild clean -target $TARGET -configuration $current_style -sdk $LATEST_SDK_SIMULATOR\nxcodebuild -target $TARGET -configuration $current_style -sdk $LATEST_SDK_SIMULATOR \"$othercflags\" build\n\n# Build library for device\nxcodebuild clean -target $TARGET -configuration $current_style -sdk $LATEST_SDK_DEVICE\nxcodebuild -target $TARGET -configuration $current_style -sdk $LATEST_SDK_DEVICE \"$othercflags\" build\n\n# Glue together libraries\nlipo \"${local_build_root}/${current_style}-iphoneos/$LIBRARY_NAME\" -arch i386 \"${local_build_root}/${current_style}-iphonesimulator/$LIBRARY_NAME\" -create -output \"${PROJECT_DIR}/$LIBRARY_OUT_NAME\"\n\n# Create symlink\ncd lib\nln -s \"$LIBRARY_OUT_NAME_RELATIVE\" \"$LIBRARY_NAME\"\ncd ..\n\nif [ $? -eq 0 ]; then\nzip -R -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"lib/*.a\"\nzip -r -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"resources\" \"include\" -x@zip_exclude.lst\n#zip \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" .packageid\nfi\n\nif [ $SCRIPT_OPTIONS = \"MOVE_FILE\" ]; then\n    BUILT_ZIP=\"${PROJECT_DIR}/$LIBRARY_ARCHIVE\"\n    NEW_ZIP=\"$DEST_DIR/$LIBRARY_ARCHIVE\"\n\n    if [ $current_style = \"Debug\" ]; then\n        OLD_FOLDER=\"$DEST_DIR/$TARGET-${current_style}\"\n    else  \n        OLD_FOLDER=\"$DEST_DIR/$TARGET\"\n    fi\n    rm -rf $OLD_FOLDER\n    mv $BUILT_ZIP $DEST_DIR/\n    unzip -o $NEW_ZIP -d $OLD_FOLDER/\n    rm -f $NEW_ZIP\nfi\n\ndone";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -338,7 +338,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
-				PRODUCT_NAME = facebook_ios_sdk;
+				PRODUCT_NAME = Facebook;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -359,7 +359,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
-				PRODUCT_NAME = facebook_ios_sdk;
+				PRODUCT_NAME = Facebook;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -440,7 +440,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "FacebookLib" */ = {
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Facebook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB921F08733DC00010E9CD /* Debug */,
@@ -458,7 +458,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E697A555144AEB9E00DCEBD1 /* Build configuration list for PBXNativeTarget "FacebookLib_script" */ = {
+		E697A555144AEB9E00DCEBD1 /* Build configuration list for PBXNativeTarget "Facebook_script" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E697A556144AEB9E00DCEBD1 /* Debug */,
