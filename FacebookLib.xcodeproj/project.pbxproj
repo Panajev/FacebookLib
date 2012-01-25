@@ -38,7 +38,7 @@
 		AA747D9E0F9514B9006C5449 /* facebook_ios_sdk_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facebook_ios_sdk_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libFacebook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFacebook.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E697A54D144AEB9E00DCEBD1 /* libFacebookLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libFacebookLib.a; path = libFacebookLib_script.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E697A54D144AEB9E00DCEBD1 /* libFacebookLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libFacebookLib.a; path = libFacebook_script.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E697A588144AEDE500DCEBD1 /* FBDialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBDialog.bundle; path = resources/FBDialog.bundle; sourceTree = "<group>"; };
 		E6D8E07614B518100076E69C /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facebook.h; sourceTree = "<group>"; };
 		E6D8E07814B518100076E69C /* FBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBConnect.h; sourceTree = "<group>"; };
@@ -232,9 +232,9 @@
 			productReference = D2AAC07E0554694100DB518D /* libFacebook.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		E697A54C144AEB9E00DCEBD1 /* Facebook_script */ = {
+		E697A54C144AEB9E00DCEBD1 /* FacebookLib_script */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E697A555144AEB9E00DCEBD1 /* Build configuration list for PBXNativeTarget "Facebook_script" */;
+			buildConfigurationList = E697A555144AEB9E00DCEBD1 /* Build configuration list for PBXNativeTarget "FacebookLib_script" */;
 			buildPhases = (
 				E697A549144AEB9E00DCEBD1 /* Sources */,
 				E697A54A144AEB9E00DCEBD1 /* Frameworks */,
@@ -245,7 +245,7 @@
 			);
 			dependencies = (
 			);
-			name = Facebook_script;
+			name = FacebookLib_script;
 			productName = FacebookLib;
 			productReference = E697A54D144AEB9E00DCEBD1 /* libFacebookLib.a */;
 			productType = "com.apple.product-type.library.static";
@@ -271,7 +271,7 @@
 			projectRoot = "";
 			targets = (
 				D2AAC07D0554694100DB518D /* Facebook */,
-				E697A54C144AEB9E00DCEBD1 /* Facebook_script */,
+				E697A54C144AEB9E00DCEBD1 /* FacebookLib_script */,
 			);
 		};
 /* End PBXProject section */
@@ -458,7 +458,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E697A555144AEB9E00DCEBD1 /* Build configuration list for PBXNativeTarget "Facebook_script" */ = {
+		E697A555144AEB9E00DCEBD1 /* Build configuration list for PBXNativeTarget "FacebookLib_script" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E697A556144AEB9E00DCEBD1 /* Debug */,
