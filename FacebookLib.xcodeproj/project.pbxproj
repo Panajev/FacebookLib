@@ -263,7 +263,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "FacebookLib" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -342,7 +342,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = Facebook;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -361,7 +361,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = Facebook;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
